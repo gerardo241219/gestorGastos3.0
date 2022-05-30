@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import generateKey from "../helpers/generateKey";
 
 const Add = ({ records, setRecords }) => {
 
@@ -48,7 +49,10 @@ const Add = ({ records, setRecords }) => {
             return;
         }
 
+        const id = generateKey();
+
         const objRecord = {
+            id,
             type,
             categorie,
             description,
@@ -129,7 +133,7 @@ const Add = ({ records, setRecords }) => {
                     id="amount"
                     placeholder="Cantidad"
                     value={amount}
-                    onChange={e => setAmount(e.target.value)}
+                    onChange={e => setAmount(Number(e.target.value))}
                 />
             </div> 
 

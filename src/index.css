@@ -27,11 +27,22 @@ body {
 
 h1,
 h2,
-h3 {
+h3,
+h4,
+h5,
+h6,
+p {
   margin: 0;
 }
 
 /* ----------------------------------------- Header ------------------------------*/
+
+.app {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
 .header {
   width: 100%;
   height: 50vh;
@@ -40,7 +51,7 @@ h3 {
 }
 
 .header-small {
-  height: 15vh;
+  height: 20vh;
 }
 
 .card {
@@ -108,6 +119,7 @@ h3 {
   padding: 1rem;
   border: none;
   font-size: 1.3rem;
+  cursor: pointer;
 }
 
 .add__form-label {
@@ -147,27 +159,10 @@ h3 {
 .details__amount {
   margin-left: 0.5rem;
   font-family: var(--font-primary);
-  letter-spacing: 0.3rem;
   display: inline-block;
   margin-top: 0.5rem;
   display: inline;
   color: var(--bg-secondary);
-}
-
-@media(min-width: 560px) {
-  .card {
-    width: 75%;
-  }
-
-  .add {
-    width: 85%;
-    margin: 0 auto;
-  }
-
-  .info {
-    width: 85%;
-    margin: 0 auto;
-  }
 }
 
 @media(min-width: 768px) {
@@ -177,12 +172,127 @@ h3 {
 
   .add {
     width: 75%;
+    margin: 0 auto;
   }
 
   .info {
     width: 75%;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
+}
+
+/* -------------------------------------------------- Main ----------------------------------------- */
+.main {
+  width: 90%;
+  height: 50vh;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  border: 1px solid #4E9F3D;
+  position: relative;
+  margin-top: 25vh;
+  border-radius: 1rem;
+  text-align: center;
+  opacity: 0;
+  overflow: hidden;
+  display: none;
+}
+
+@media(min-width: 768px){
+  .main {
+    width: 50%;
+  }
+}
+
+.main-active {
+  display: block;
+  opacity: 1;
+}
+
+.main__title {
+  font-family: var(--font-primary);
+  font-size: 2.5rem;
+}
+
+.main__separator {
+  width: 90%;
+  margin: 1rem auto;
+  border: 1px solid #4E9F3D;
+}
+
+.list {
+  width: 100%;
+  height: 35vh;
+  padding: 1rem;
+  overflow-y: scroll;
+}
+
+.record {
+  width: 100%;
+  background-color: var(--bg-primary);
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem 2rem;
+}
+
+.record__header, .record__body, .record__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.record__type {
+  font-family: var(--font-primary);
+  letter-spacing: 1px;
+  color: var(--bg-secondary);
+}
+
+.record__category {
+  color: #e2e2e2;
+}
+
+.record__footer {
+  font-size: 1rem;
+  color: #e2e2e2;
+  margin-top: 2rem;
+  opacity: 0;
+}
+
+.record__body {
+  margin-top: 1rem;
+}
+
+.record__description {
+  color: #e2e2e2;
+  font-size: 1.2rem;
+}
+
+.record__price {
+  font-family: var(--font-primary);
+  color: var(--bg-secondary);
+}
+
+.record__footer {
+  opacity: 1;
+}
+
+/* ----------------------------------------------- Float Button ------------------------------------- */
+
+.floatButton {
+  position: absolute;
+  width: 5rem;
+  height: 5rem;
+  background-color: #191A19;
+  border-radius: 50%;
+  top: 90%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+  color: #E2E2E2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  cursor: pointer;
 }

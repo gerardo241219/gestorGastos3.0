@@ -1,11 +1,17 @@
 import Details from "./Details"
 import Graph from "./Graph"
 
-const Info = () => {
+const Info = ({ income, expense, estimate, procent }) => {
   return (
     <div className="info">
-        <Graph />
-        <Details />
+      <Graph
+        procent={procent}
+      />
+      <Details
+        income={income}
+        expense={expense}
+        estimate={estimate}
+      />
     </div>
   )
 }

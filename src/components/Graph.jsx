@@ -1,16 +1,15 @@
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
-const Graph = () => {
+const Graph = ({ procent }) => {
 
-    const percentage = 66;
 
   return (
     <div className='graph'>
         <CircularProgressbar 
             className='graph-item' 
-            value={percentage} 
-            text={`${percentage}%`}
+            value={procent} 
+            text={`${procent}%`}
             styles={buildStyles({
                 pathColor: '#4E9F3D',
                 textColor: '#4E9F3D'
