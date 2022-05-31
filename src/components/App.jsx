@@ -6,6 +6,8 @@ import Main from "./Main"
 const App = () => {
 
   const [records, setRecords] = useState([]);
+  const [record, setRecord] = useState({});
+
   const [income, setIncome] = useState(0);
   const [expense, setExpense] = useState(0);
   const [estimate, setEstimate] = useState(0);
@@ -34,6 +36,9 @@ const App = () => {
       }
 
       setRecordAmination(true);
+    } else {
+      setAdd(true);
+      setRecordAmination(false);
     }
   }, [records]);
 
@@ -47,9 +52,12 @@ const App = () => {
         expense={expense}
         estimate={estimate}
         procent={procent}
+        record={record}
       />
       <Main
         records={records}
+        setRecords={setRecords}
+        setRecord={setRecord}
         recordAnimation={recordAnimation}
       />
       <FloatButton 

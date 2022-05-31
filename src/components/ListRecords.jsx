@@ -1,16 +1,16 @@
 import Record from "./Record"
 
-const ListRecords = ({records}) => {
+const ListRecords = ({records, setRecords, setRecord}) => {
   return (
     <div className="list">
         {
             records.map(record => (
                 <Record 
                     key={record.id}
-                    type={record.type}
-                    categorie={record.categorie}
-                    description={record.description}
-                    amount={record.amount}
+                    record={record}
+                    records={records}
+                    setRecords={setRecords}
+                    setRecord={setRecord}
                 />
             ))
         }

@@ -1,6 +1,6 @@
 import ListRecords from "./ListRecords"
 
-const Main = ({records, recordAnimation}) => {
+const Main = ({records, setRecords, setRecord, recordAnimation}) => {
   return (
     <div className={`main ${recordAnimation && `main-active`}`}>
         <h3 className="main__title">Registros</h3>
@@ -8,6 +8,8 @@ const Main = ({records, recordAnimation}) => {
 
         <ListRecords 
             records={records}
+            setRecords={setRecords}
+            setRecord={setRecord}
         />
     </div>
   )

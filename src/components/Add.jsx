@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import generateKey from "../helpers/generateKey";
 
-const Add = ({ records, setRecords }) => {
+const Add = ({ records, setRecords, record }) => {
 
     const [type, setType] = useState("");
     const [categorie, setCategorie] = useState("");
