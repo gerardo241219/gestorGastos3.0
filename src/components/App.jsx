@@ -32,15 +32,27 @@ const App = () => {
       setEstimate(totalIncome - totalExpense);
       
       if(totalIncome !== 0) {
-        setProcent( (( totalExpense * 100 ) / totalIncome));
+        setProcent((( totalExpense * 100 ) / totalIncome));
+      } else {
+        setProcent(0);
       }
 
       setRecordAmination(true);
     } else {
       setAdd(true);
       setRecordAmination(false);
+      setIncome(0);
+      setExpense(0);
+      setEstimate(0);
     }
   }, [records]);
+
+  useEffect(() => {
+    if(Object.keys(record).length > 0) {
+      setAdd(true);
+      setRecordAmination(false);
+    } 
+  }, [record])
 
   return (
     <div className="app">
@@ -53,6 +65,7 @@ const App = () => {
         estimate={estimate}
         procent={procent}
         record={record}
+        setRecord={setRecord}
       />
       <Main
         records={records}

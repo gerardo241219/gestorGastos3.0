@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import generateKey from "../helpers/generateKey";
 
-const Add = ({ records, setRecords, record }) => {
+const Add = ({ records, setRecords, record, setRecord }) => {
 
     const [type, setType] = useState("");
     const [categorie, setCategorie] = useState("");
     const [description, setDescription] = useState("");
     const [amount, setAmount] = useState(0);
     const [obj, setObj] = useState([]);
+    const [edit, setEdit] = useState(false);
 
     // Verificos el tipo de registro para modificar el contenido de la categoria
     useEffect(() => {
@@ -35,6 +36,17 @@ const Add = ({ records, setRecords, record }) => {
             ])
         }
     }, [type]);
+
+    useState(() => {
+        if(Object.keys(record).length > 0) {
+            setType(record.type)
+            setCategorie(record.categorie);
+            setDescription(record.description);
+            setAmount(record.amount);
+
+            setEdit(true);
+        }
+    }, [record])
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -68,11 +80,28 @@ const Add = ({ records, setRecords, record }) => {
         setAmount(0);
     }
 
+    const handleEdit = e => {
+        e.preventDefault();
+
+        const updateRecords = records.map(recordList => {
+            if(recordList.id === record.id) {
+                recordList.type = type;
+                recordList.categorie = categorie;
+                recordList.description = description;
+                recordList.amount = amount;
+            }
+            return recordList;
+        })
+
+        setRecords(updateRecords);
+        setRecord({});
+    }
+
   return (
     <div className="add">
         <form 
             className="add__form"
-            onSubmit={handleSubmit}
+            onSubmit={ edit ? handleEdit : handleSubmit}
         >
             <div className="add__form-inputs">
                 <label 
@@ -140,7 +169,7 @@ const Add = ({ records, setRecords, record }) => {
             <div className="add__form-inputs">
                 <input 
                     type="submit" 
-                    value="Registrar"
+                    value={`${edit ? 'Editar' : 'Registrar'}`}
                 />
             </div>     
         </form>

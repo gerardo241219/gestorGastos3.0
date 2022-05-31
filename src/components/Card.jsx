@@ -2,7 +2,7 @@ import React from 'react'
 import Add from './Add'
 import Info from './Info'
 
-const Card = ({ add, records, setRecords, income, expense, estimate, procent, record }) => {
+const Card = ({ add, records, setRecords, income, expense, estimate, procent, record, setRecord }) => {
     return (
         <div className='card'>
             <h3 className='card__title'>Gestor de <span className='card__title-span'>gastos</span></h3>
@@ -19,6 +19,7 @@ const Card = ({ add, records, setRecords, income, expense, estimate, procent, re
                     records={records}
                     setRecords={setRecords}
                     record={record}
+                    setRecord={setRecord}
                 />
             )}
         </div>

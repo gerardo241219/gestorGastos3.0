@@ -1,6 +1,6 @@
 import Card from "./Card"
 
-const Header = ({ add, records, setRecords, income, expense, estimate, procent, record }) => {
+const Header = ({ add, records, setRecords, income, expense, estimate, procent, record, setRecord }) => {
     return (
         <div className={`header ${!add && 'header-small'}`}>
             <Card
@@ -12,6 +12,7 @@ const Header = ({ add, records, setRecords, income, expense, estimate, procent, 
                 estimate={estimate}
                 procent={procent}
                 record={record}
+                setRecord={setRecord}
             />
         </div>
     )
